@@ -21,6 +21,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 namespace Climbing
 {
@@ -48,16 +49,27 @@ namespace Climbing
         void Awake()
         {
             //Hold and Release
-            controls = new PlayerControls();
-            controls.Player.Movement.performed += ctx => movement = ctx.ReadValue<Vector2>();
-            controls.Player.Movement.canceled += ctx => movement = ctx.ReadValue<Vector2>();
-            controls.Player.Jump.performed += ctx => jump = ctx.ReadValueAsButton();
-            controls.Player.Jump.canceled += ctx => jump = ctx.ReadValueAsButton();
-            controls.Player.Drop.performed += ctx => drop = ctx.ReadValueAsButton();
-            controls.Player.Drop.canceled += ctx => drop = ctx.ReadValueAsButton();
-            controls.Player.Run.performed += ctx => run = ctx.ReadValueAsButton();
-            controls.Player.Run.canceled += ctx => run = ctx.ReadValueAsButton();
-            controls.GameManager.Exit.performed += ctx => Exit();
+            if (transform.parent.GetComponent<PhotonView>().IsMine)
+            {
+                controls = new PlayerControls();
+                controls.Player.Movement.performed += ctx => movement = ctx.ReadValue<Vector2>();
+                controls.Player.Movement.canceled += ctx => movement = ctx.ReadValue<Vector2>();
+                controls.Player.Jump.performed += ctx => jump = ctx.ReadValueAsButton();
+                controls.Player.Jump.canceled += ctx => jump = ctx.ReadValueAsButton();
+                controls.Player.Drop.performed += ctx => drop = ctx.ReadValueAsButton();
+                controls.Player.Drop.canceled += ctx => drop = ctx.ReadValueAsButton();
+                controls.Player.Run.performed += ctx => run = ctx.ReadValueAsButton();
+                controls.Player.Run.canceled += ctx => run = ctx.ReadValueAsButton();
+                controls.GameManager.Exit.performed += ctx => Exit();
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    this.transform.parent.GetChild(i).gameObject.SetActive(false);
+                }
+                
+            }
         }
 
         void ToggleRun()

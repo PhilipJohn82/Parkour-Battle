@@ -87,7 +87,7 @@ namespace Photon.Pun.UtilityScripts
             this.Text.text = string.Format("Game starts in {0} seconds", countdown.ToString("n0"));
 
             if (countdown > 0.0f) return;
-
+            Debug.Log("OnTimerEnds");
             OnTimerEnds();
         }
 
@@ -120,9 +120,10 @@ namespace Photon.Pun.UtilityScripts
         private void Initialize()
         {
             int propStartTime;
-            if (TryGetStartTime(out propStartTime))
-            {
-                this.startTime = propStartTime;
+            //if (TryGetStartTime(out propStartTime))
+            //{
+                //this.startTime = propStartTime;
+                this.startTime = 5;
                 Debug.Log("Initialize sets StartTime " + this.startTime + " server time now: " + PhotonNetwork.ServerTimestamp + " remain: " + TimeRemaining());
 
 
@@ -132,7 +133,7 @@ namespace Photon.Pun.UtilityScripts
                     OnTimerRuns();
                 else
                     OnTimerEnds();
-            }
+            //}
         }
 
 

@@ -20,7 +20,7 @@ MonoBehaviour:
     AppVersion: 
     UseNameServer: 0
     FixedRegion: 
-    Server: 10.10.18.103
+    Server: 10.10.14.103
     Port: 5055
     ProxyServer: 
     Protocol: 0

@@ -46,7 +46,7 @@ public class PlayerList : MonoBehaviour
 
                 if (PhotonNetwork.IsMasterClient)
                 {
-                    FindObjectOfType<LobbyMainPanel>().LocalPlayerPropertiesUpdated();
+                    //FindObjectOfType<LobbyManager>().LocalPlayerPropertiesUpdated();
                 }
             });
         }

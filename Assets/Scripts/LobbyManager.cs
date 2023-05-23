@@ -20,6 +20,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Transform PlayerContent;
 
     public Button StartButton;
+
+    public GameObject JoinWindow;
+    public GameObject LobbyWindow;
     
     int MaxPlayer;
     private Dictionary<string, RoomInfo> cachedRoomList;
@@ -95,10 +98,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+
         Debug.Log("Joinned");
         // joining (or entering) a room invalidates any cached lobby room list (even if LeaveLobby was not called due to just joining a room)
         cachedRoomList.Clear();
-
+        JoinWindow.SetActive(false);
+        LobbyWindow.SetActive(true);
+        LobbyWindow.GetComponent<DefultPopup>().Clicked();
         if (playerListEntries == null)
         {
             playerListEntries = new Dictionary<int, GameObject>();
@@ -189,7 +195,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
 
     #endregion
+    public void OnStartGameButtonClicked()
+    {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
 
+        PhotonNetwork.LoadLevel("Main");
+    }
     public void MaxPlayerControl(bool addform) {
         if (addform)
         {

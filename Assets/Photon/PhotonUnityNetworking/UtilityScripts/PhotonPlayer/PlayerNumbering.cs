@@ -208,8 +208,10 @@ namespace Photon.Pun.UtilityScripts
         /// <returns>persistent index in room. -1 for no indexing</returns>
         public static int GetPlayerNumber(this Player player)
         {
-			if (player == null) {
-				return -1;
+			if (player == null)
+            {
+                Debug.Log("null");
+                return -1;
 			}
 
             if (PhotonNetwork.OfflineMode)
@@ -218,13 +220,17 @@ namespace Photon.Pun.UtilityScripts
             }
             if (!PhotonNetwork.IsConnectedAndReady)
             {
+                Debug.Log("IsConnectedAndReady");
                 return -1;
             }
 
             object value;
-			if (player.CustomProperties.TryGetValue (PlayerNumbering.RoomPlayerIndexedProp, out value)) {
-				return (byte)value;
+			if (player.CustomProperties.TryGetValue (PlayerNumbering.RoomPlayerIndexedProp, out value))
+            {
+                Debug.Log("default");
+                return (byte)value;
 			}
+            Debug.Log("end");
             return -1;
         }
 
