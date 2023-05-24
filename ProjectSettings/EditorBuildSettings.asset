@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: ff8b50065f42ff846be8fa425db054d5
   - enabled: 0
-    path: Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Scenes/DemoAsteroids-GameScene.unity
+    path: Assets/PhotonFusion/PhotonUnityNetworking/Demos/DemoAsteroids/Scenes/DemoAsteroids-GameScene.unity
     guid: 98efc37d6307844488eb3e4247dde7e9
   - enabled: 0
-    path: Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Scenes/DemoAsteroids-LobbyScene.unity
+    path: Assets/PhotonFusion/PhotonUnityNetworking/Demos/DemoAsteroids/Scenes/DemoAsteroids-LobbyScene.unity
     guid: c8a9d1312a49dc8488a9b32d83d659c7
   m_configObjects: {}
