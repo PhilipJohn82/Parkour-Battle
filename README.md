@@ -1,4 +1,4 @@
-![12](https://github.com/PhilipJohn82/ParkourFusion/assets/111518490/c7c300ef-cd87-4414-93e6-058b239e3adb)# 🕺ParkourFusion
+# 🕺ParkourFusion
 
 ### PROJECT SHIELDS
 [![Contributors][contributors-shield]][contributors-url]
