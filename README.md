@@ -1,4 +1,4 @@
-# 🕺ParkourFusion
+# 🕺Parkour Battle
 
 ### PROJECT SHIELDS
 [![Contributors][contributors-shield]][contributors-url]
